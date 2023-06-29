@@ -62,7 +62,7 @@
   - wir deklarieren eine Funktion und importieren diese in App.js
   - die List Komponente bekommt die Activities übergeben -> {activities}
   - mit der map-Funktion wird eine neue Liste erstellt, basierend auf den Elementen im activities-Array; für jedes Listenelement wird eine Callback-Function aufgerufen
-    `{activities.map((activity) => {
+  `{activities.map((activity) => {
   return (
     <li className="activity_item" key={activity.id}>
       {activity.name}
@@ -74,3 +74,17 @@
   - Die Webstorage API unterstützt nur Strings, Numbers und Booleans. Um komplexere Daten zu speichern, müssen wir sie zuerst serialisieren. Das geht mit der Methode JSON.stringify():
     `localStorage.setItem("activities", JSON.stringify(activities));`
   - Um die Daten abzurufen, müssen wir die Methode JSON.parse() nutzen - diese wandelt ein JSON-String in ein JavaScript-Objekt um
+
+### Filtering List
+
+- In der App wollen wir Aktivitäten in Abhängigkeit vom aktuellen Wetter anzeigen, daher muss die Liste gefiltert werden
+- Variable `const isGoodWeather=true` einfügen.
+- Die Aktivitäten sollen gefiltert werden: Die Variable isGoodWeather soll mit dem Schlüssel isForGoodWeather übereinstimmen
+- Das activities-Array wird mit einer Filtermethode nach den Aktivitäten gefiltert
+  `const filteredActivities = activities.filter((activity) => activity.isForGoodWeather === isGoodWeather);`
+- Statt aller Aktivitäten sollen nun nur die gefilterten Aktivitäten an die List Komponente übergeben werden. Ebenso soll die Variable isGoodWeather übergeben werden:
+  `<List activities={filteredActivities} isGoodWeather={isGoodWeather} />`
+- Die Listkomponente soll eine Überschrift beinhalten, die von isGoodWeather abhängt
+  - isGoodWeather wird als Prop in der List Komponente übergeben
+  - Text in Abhängigkeit vom Wert:
+    `<h2>{isGoodWeather ? "The weather is awesome! Go outside and:" : "Bad weather outside! Here's what you can do now:"} </h2>`

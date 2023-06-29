@@ -7,7 +7,9 @@ import List from "./Components/List/List";
 import "./Components/List/List.css";
 
 function App() {
-  const [activities, setActivities] = useState([{ id: "abc", name: "test" }]);
+  const [activities, setActivities] = useState([
+    { id: "abc", name: "test", isForGoodWeather: true },
+  ]);
 
   localStorage.setItem("activities", JSON.stringify(activities));
   const localStorageActivities = JSON.parse(localStorage.getItem("activities"));
@@ -17,9 +19,15 @@ function App() {
     console.log(activities);
   }
 
+  const isGoodWeather = true;
+
+  const filteredActivities = activities.filter(
+    (activity) => activity.isForGoodWeather === isGoodWeather
+  );
+
   return (
     <div className="App">
-      <List activities={activities} />
+      <List activities={filteredActivities} isGoodWeather={isGoodWeather} />
       <Form onAddActivity={handleAddActivity} />
     </div>
   );
