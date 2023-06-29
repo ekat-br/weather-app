@@ -4,6 +4,7 @@
 
 - Project Setup
 - Add Activity Form
+- List Component
 - Filtering List
 - Fetch API
 - Delete an API
@@ -18,8 +19,6 @@
 - Unnötigen Code entfernen
 
 ### Add Activity Form
-
-#### Aufgabenblöcke
 
 - Form Componente schreiben
 
@@ -38,6 +37,7 @@
   - über event.target.elements können die Werte extrahiert werden
   - die extrahierten Werte werden im Objekt data gespeichert
   - onAddActivity aufrufen und das Objekt mit den extrahierten Werten übergeben
+  - nicht zu vergessen: `<form onSubmit={handleSubmit}>`-> Die handleSubmit-Funktion solle aufgerufen werden, sobald das Formular abgesendet wird
 
 - Reset Form, Focus Input Field
 
@@ -47,10 +47,30 @@
 
 - States und Funktionen in App.js
 
-  - in der App.js benötigen wir nun ein State für activities: const [activities, setActivities] = useState("") -> wichtig: useState importieren
+  - in der App.js benötigen wir nun ein State für activities: const [activities, setActivities] = useState([]); -> wichtig: useState importieren
   - wir brauchen eine Funktion (handleActivity), die ein neues Aktivitätsobjekt als Parameter annimmt und anschließend zum Activities State hinzufügt: setActivities([...activities, {activityData}]);
   - Jedes Aktivitätsobjekt soll eine eindeutige ID erhalten, hierfür können wir uid nutzen (Bibliothek, mit der wir IDs generieren können): setActivities([...activities, {id: uid(), ...activityData}]);
   - Wichtig: uid muss importiert werden. Über Terminal Befehl eingeben: npm install uid; danach in App.js: import { uid } from "uid";
 
 - handleAddActivity Übergabe
   - die Funktion muss der Form Komponente übergeben werden: `<Form onAddActivity={handleAddActivity} />`
+
+### List Component
+
+- Wir benötigen eine List Komponente, die eine Liste an Aktivitäten anzeigt
+
+  - wir deklarieren eine Funktion und importieren diese in App.js
+  - die List Komponente bekommt die Activities übergeben -> {activities}
+  - mit der map-Funktion wird eine neue Liste erstellt, basierend auf den Elementen im activities-Array; für jedes Listenelement wird eine Callback-Function aufgerufen
+    `{activities.map((activity) => {
+  return (
+    <li className="activity_item" key={activity.id}>
+      {activity.name}
+    </li>
+  );`
+  - Das key-Element wird verwendet, um die einzelnen Elemente in der Liste zu identifizieren und effizient zu rendern -> activity.id wird als eindeutiger Schlüssel verwendet
+
+- Wir wollen die Aktivitäten im localStorage speichern
+  - Die Webstorage API unterstützt nur Strings, Numbers und Booleans. Um komplexere Daten zu speichern, müssen wir sie zuerst serialisieren. Das geht mit der Methode JSON.stringify():
+    `localStorage.setItem("activities", JSON.stringify(activities));`
+  - Um die Daten abzurufen, müssen wir die Methode JSON.parse() nutzen - diese wandelt ein JSON-String in ein JavaScript-Objekt um

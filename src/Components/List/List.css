@@ -1,0 +1,12 @@
+.activities_list {
+  list-style: none;
+  text-align: center;
+  padding: 10px;
+}
+
+.activity_item {
+  padding: 10px;
+  background-color: pink;
+  margin: 5px;
+  text-align: left;
+}

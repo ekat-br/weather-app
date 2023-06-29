@@ -13,12 +13,11 @@ export default function Form({ onAddActivity }) {
     onAddActivity(activityData);
 
     event.target.reset();
-    //name.focus();
   }
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Add new Activity</h2>
         <label htmlFor="activity-name">
           Activity:
