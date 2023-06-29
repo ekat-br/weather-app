@@ -73,7 +73,8 @@
 - Wir wollen die Aktivitäten im localStorage speichern
   - Die Webstorage API unterstützt nur Strings, Numbers und Booleans. Um komplexere Daten zu speichern, müssen wir sie zuerst serialisieren. Das geht mit der Methode JSON.stringify():
     `localStorage.setItem("activities", JSON.stringify(activities));`
-  - Um die Daten abzurufen, müssen wir die Methode JSON.parse() nutzen - diese wandelt ein JSON-String in ein JavaScript-Objekt um
+  - Um die Daten abzurufen, müssen wir die Methode JSON.parse() nutzen - diese wandelt ein JSON-String in ein JavaScript-Objekt um (benötigen wir aber aktuell nicht)
+    `const localStorageActivities = JSON.parse(localStorage.getItem("activities"));`
 
 ### Filtering List
 
@@ -88,3 +89,11 @@
   - isGoodWeather wird als Prop in der List Komponente übergeben
   - Text in Abhängigkeit vom Wert:
     `<h2>{isGoodWeather ? "The weather is awesome! Go outside and:" : "Bad weather outside! Here's what you can do now:"} </h2>`
+
+### Fetch API
+
+- das Wetter soll nun nicht von einer Variable abhängen, sondern von der Antwort der weather API
+- die Variable isGoodWeather wird durch ein neues State für das Wetter ersetzt
+  `const [weather, setWeather] = useState({});`
+- Die Weather API soll nur beim ersten Rendering gefetched werden, deshalb nutzen wir useEffect()
+- zum Schluss müssen wir uns die Temperator und das Wetter-Emoji anzeigen lassen, ich habe dies in einer weiteren Komponente (Weather) umgesetzt

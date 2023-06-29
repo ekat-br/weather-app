@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.weather_emoji {
+  font-size: 70px;
+  text-align: left;
+}
+.weather_temp {
+  font-size: 70px;
+  font-weight: 100;
+  padding: 20px;
+}
+
+.weather_section {
+  margin-top: 40px;
+}
