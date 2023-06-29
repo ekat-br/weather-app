@@ -42,10 +42,17 @@ function App() {
     (activity) => activity.isForGoodWeather === isGoodWeather
   );
 
+  function handleDeleteActivity(id) {
+    setActivities(activities.filter((activity) => activity.id !== id));
+  }
+
   return (
     <div className="App">
       <Weather weather={weather} />
-      <List activities={filteredActivities} isGoodWeather={isGoodWeather} />
+      <List
+        activities={filteredActivities}
+        onDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity} />
     </div>
   );

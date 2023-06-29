@@ -62,12 +62,7 @@
   - wir deklarieren eine Funktion und importieren diese in App.js
   - die List Komponente bekommt die Activities übergeben -> {activities}
   - mit der map-Funktion wird eine neue Liste erstellt, basierend auf den Elementen im activities-Array; für jedes Listenelement wird eine Callback-Function aufgerufen
-  `{activities.map((activity) => {
-  return (
-    <li className="activity_item" key={activity.id}>
-      {activity.name}
-    </li>
-  );`
+    `{activities.map((activity) => {return (<li className="activity_item" key={activity.id}>{activity.name}</li>);`
   - Das key-Element wird verwendet, um die einzelnen Elemente in der Liste zu identifizieren und effizient zu rendern -> activity.id wird als eindeutiger Schlüssel verwendet
 
 - Wir wollen die Aktivitäten im localStorage speichern
@@ -97,3 +92,16 @@
   `const [weather, setWeather] = useState({});`
 - Die Weather API soll nur beim ersten Rendering gefetched werden, deshalb nutzen wir useEffect()
 - zum Schluss müssen wir uns die Temperator und das Wetter-Emoji anzeigen lassen, ich habe dies in einer weiteren Komponente (Weather) umgesetzt
+
+### Delete an Item
+
+- Für jedes Listelement soll ein Löschbutton hinzugefügt werden
+- Die List Komponente erhält einen neuen Prop: onDeleteActivity
+- Die ID der Aktivität wird als Argument an onDeleteActivity übergeben
+- handleDeleteActivity
+
+```
+ function handleDeleteActivity(id) {
+    setActivities(activities.filter((activity) => activity.id !== id));
+  }
+```
