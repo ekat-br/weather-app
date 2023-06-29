@@ -26,6 +26,9 @@ function App() {
       }
     }
     fetchWeatherData();
+    const interval = setInterval(fetchWeatherData, 5000);
+
+    return clearInterval(interval);
   });
 
   localStorage.setItem("activities", JSON.stringify(activities));
