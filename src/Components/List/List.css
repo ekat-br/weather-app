@@ -6,7 +6,18 @@
 
 .activity_item {
   padding: 10px;
-  background-color: pink;
+  background-color: #fca311;
+  opacity: 0.8;
   margin: 5px;
+  border-radius: 4px;
   text-align: left;
+  position: relative;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 7px;
 }

@@ -6,7 +6,12 @@ export default function List({ activities, isGoodWeather, onDeleteActivity }) {
         return (
           <li className="activity_item" key={activity.id}>
             {activity.name}
-            <button onClick={() => onDeleteActivity(activity.id)}>❌</button>
+            <button
+              className="delete-btn"
+              onClick={() => onDeleteActivity(activity.id)}
+            >
+              ❌
+            </button>
           </li>
         );
       })}

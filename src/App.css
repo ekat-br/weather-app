@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.submit-btn {
+  background-color: #fca311;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  margin: auto;
+  width: fit-content;
+}
 .weather_emoji {
   font-size: 70px;
   text-align: left;
@@ -14,4 +29,8 @@
 
 .weather_section {
   margin-top: 40px;
+}
+
+.heading-activity {
+  font-weight: 300;
 }

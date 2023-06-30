@@ -17,8 +17,8 @@ export default function Form({ onAddActivity }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h2>Add new Activity</h2>
+      <form className="form" onSubmit={handleSubmit}>
+        <h2 className="heading-activity">Add new Activity</h2>
         <label htmlFor="activity-name">
           Activity:
           <input autoFocus id="activity-name" type="text" name="name"></input>
@@ -31,7 +31,9 @@ export default function Form({ onAddActivity }) {
             name="isForGoodWeather"
           ></input>
         </label>
-        <button type="submit">Submit</button>
+        <button className="submit-btn" type="submit">
+          Submit
+        </button>
       </form>
     </>
   );
