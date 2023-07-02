@@ -39,7 +39,7 @@ function App() {
     console.log(activities);
   }
 
-  const isGoodWeather = true;
+  const isGoodWeather = weather.isGoodWeather;
 
   const filteredActivities = activities.filter(
     (activity) => activity.isForGoodWeather === isGoodWeather
@@ -55,6 +55,7 @@ function App() {
       <List
         activities={filteredActivities}
         onDeleteActivity={handleDeleteActivity}
+        isGoodWeather={isGoodWeather}
       />
       <Form onAddActivity={handleAddActivity} />
     </div>
