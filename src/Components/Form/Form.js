@@ -21,7 +21,13 @@ export default function Form({ onAddActivity }) {
         <h2 className="heading-activity">Add new Activity</h2>
         <label htmlFor="activity-name">
           Activity:
-          <input autoFocus id="activity-name" type="text" name="name"></input>
+          <input
+            autoFocus
+            id="activity-name"
+            type="text"
+            name="name"
+            className="input-activity"
+          ></input>
         </label>
         <label htmlFor="weather-check">
           Good-weather activity:

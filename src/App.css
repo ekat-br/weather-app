@@ -1,3 +1,7 @@
+* {
+  background-color: #000022;
+}
+
 .App {
   text-align: center;
 }
@@ -6,6 +10,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: #fff;
 }
 .submit-btn {
   background-color: #fca311;
@@ -25,12 +30,37 @@
   font-size: 70px;
   font-weight: 100;
   padding: 20px;
+  color: #fff;
 }
 
 .weather_section {
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 .heading-activity {
   font-weight: 300;
+}
+
+h2 {
+  color: #fff;
+  font-weight: 400;
+}
+
+.input-activity {
+  background-color: #fff;
+  border: none;
+}
+
+.header {
+  background-color: #fca311;
+  position: fixed;
+  top: 0;
+  height: 35px;
+  width: 100%;
+  margin: 0 auto 100px auto;
+  text-align: center;
+  padding-top: 10px;
+  color: #000022;
+  font-weight: 700;
+  font-size: 1.3rem;
 }

@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Form from "./Components/Form/Form";
 import { useEffect, useState } from "react";
@@ -6,6 +5,7 @@ import { uid } from "uid";
 import List from "./Components/List/List";
 import "./Components/List/List.css";
 import Weather from "./Components/Weather/weather";
+import Header from "./Components/Header/Header";
 
 function App() {
   const [activities, setActivities] = useState([
@@ -51,6 +51,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Weather weather={weather} />
       <List
         activities={filteredActivities}
